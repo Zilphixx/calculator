@@ -40,7 +40,7 @@ operators.forEach((operator) => {
       operation = '+';
     } else if (operator.id === 'minus') {
       operation = '-';
-    } else if (operator.id === 'multiply') {
+    } else if (operator.id === 'multi') {
       operation = 'x';
     } else if (operator.id === 'divide') {
       operation = '÷';
@@ -61,6 +61,7 @@ function operate(inputs) {
     result = subtraction(newValuesToOperate);
   } else if (operation === 'x') {
     newValuesToOperate = inputHolder.split('x');
+    result = multiplication(newValuesToOperate);
   } else if (operation === '÷') {
     newValuesToOperate = inputHolder.split('÷');
   }
@@ -77,5 +78,11 @@ function addition(inputs) {
 function subtraction(inputs) {
   let result;
   result = inputs.reduce((num, current) => +num - +current);
+  return result;
+}
+
+function multiplication(inputs) {
+  let result;
+  result = inputs.reduce((num, current) => +num * +current);
   return result;
 }
