@@ -13,6 +13,7 @@ clearInput.addEventListener('click', () => {
   equalValue.textContent = '';
   inputValue.textContent = '';
   valuesToOperate = [];
+  result = undefined;
 });
 
 deleteInput.addEventListener('click', () => {
@@ -22,10 +23,14 @@ deleteInput.addEventListener('click', () => {
 numpads.forEach((numpad) => {
   numpad.addEventListener('click', () => {
     if (numpad.id === 'equals') {
-      valuesToOperate.push(equalValue.textContent+inputValue.textContent);
-      equalValue.textContent = `${valuesToOperate}${numpad.textContent}`;
-      result = operate(valuesToOperate);
-      inputValue.textContent = result;
+      if (valuesToOperate.length === 0) {
+        valuesToOperate.push(equalValue.textContent+inputValue.textContent);
+        equalValue.textContent = `${valuesToOperate}${numpad.textContent}`;
+        result = operate(valuesToOperate);
+        inputValue.textContent = result;
+      } else {
+        
+      }
     } else {
       inputValue.textContent += numpad.id;
     }
