@@ -45,6 +45,11 @@ numpads.forEach((numpad) => {
     } else {
       screenValue.textContent += numpad.id;
     }
+    if (numpad.id === '.') {
+      if (screenValue.textContent.includes('.')) {
+        numpad.disabled = true;
+      }
+    }
   });
 });
 
@@ -75,4 +80,16 @@ equalOperator.addEventListener('click', () => {
   +firstNumber;
   +secondNumber;
   screenValue.textContent = operate(operation, firstNumber, secondNumber);
+});
+
+
+clearButton.addEventListener('click', () => {
+  screenValue.textContent = '';
+  firstNumber = 0;
+  secondNumber = 0;
+  operation = '';
+});
+
+deleteButton.addEventListener('click', () => {
+  screenValue.textContent = screenValue.textContent.replace(/.$/, '');
 });
