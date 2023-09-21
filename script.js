@@ -55,6 +55,7 @@ function operate(inputs) {
 
   if (operation === '+') {
     newValuesToOperate = inputHolder.split('+');
+    result = addition(newValuesToOperate);
   } else if (operation === '-') {
     newValuesToOperate = inputHolder.split('-');
   } else if (operation === 'x') {
@@ -66,4 +67,8 @@ function operate(inputs) {
   return result;
 }
 
-
+function addition(inputs) {
+  let result;
+  result = inputs.reduce((num, current) => +num + +current);
+  return result;
+}
