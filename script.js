@@ -58,6 +58,7 @@ function operate(inputs) {
     result = addition(newValuesToOperate);
   } else if (operation === '-') {
     newValuesToOperate = inputHolder.split('-');
+    result = subtraction(newValuesToOperate);
   } else if (operation === 'x') {
     newValuesToOperate = inputHolder.split('x');
   } else if (operation === '÷') {
@@ -70,5 +71,11 @@ function operate(inputs) {
 function addition(inputs) {
   let result;
   result = inputs.reduce((num, current) => +num + +current);
+  return result;
+}
+
+function subtraction(inputs) {
+  let result;
+  result = inputs.reduce((num, current) => +num - +current);
   return result;
 }
