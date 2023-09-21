@@ -64,6 +64,7 @@ function operate(inputs) {
     result = multiplication(newValuesToOperate);
   } else if (operation === '÷') {
     newValuesToOperate = inputHolder.split('÷');
+    result = division(newValuesToOperate);
   }
 
   return result;
@@ -84,5 +85,14 @@ function subtraction(inputs) {
 function multiplication(inputs) {
   let result;
   result = inputs.reduce((num, current) => +num * +current);
+  return result;
+}
+
+function division(inputs) {
+  let result;
+  result = inputs.reduce((num, current) => +num / +current);
+  if (result !== Math.floor(result)) {
+    result = result.toFixed(2);
+  }
   return result;
 }
