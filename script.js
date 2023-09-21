@@ -1,17 +1,17 @@
 function addition(input1, input2) {
-  return input1 + input2;
+  return +input1 + +input2;
 }
 
 function subtraction(input1, input2) {
-  return input1 - input2;
+  return +input1 - +input2;
 }
 
 function multiplication(input1, input2) {
-  return input1 * input2;
+  return +input1 * +input2;
 }
 
 function division(input1, input2) {
-  return (input1 / input2).toFixed(2);
+  return (+input1 / +input2).toFixed(2);
 }
 
 function operate(operator, input1, input2) {
@@ -77,8 +77,6 @@ operators.forEach((operator) => {
 
 equalOperator.addEventListener('click', () => {
   secondNumber = screenValue.textContent;
-  +firstNumber;
-  +secondNumber;
   screenValue.textContent = operate(operation, firstNumber, secondNumber);
 });
 
